@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Abusive Text Detector</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 600px; margin: 100px auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); }
+        .title { text-align: center; margin-bottom: 20px; font-size: 24px; }
+        .input-group { margin-bottom: 15px; }
+        .button { width: 100%; padding: 10px; font-size: 16px; background-color: #007bff; color: #fff; border: none; cursor: pointer; }
+        .button:hover { background-color: #0056b3; }
+        .output { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="title">Abusive Text Detector</h2>
+        <form action="/predict" method="post">
+            <div class="input-group">
+                <label for="text">Enter Text:</label>
+                <textarea name="text" id="text" rows="4" style="width: 100%; padding: 8px;"></textarea>
+            </div>
+            <button type="submit" class="button">Classify Text</button>
+        </form>
+        {% if prediction_text %}
+        <div class="output">
+            <h4>Prediction Result:</h4>
+            <p>{{ prediction_text }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
